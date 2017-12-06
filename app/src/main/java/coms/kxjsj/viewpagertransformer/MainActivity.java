@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 return "标题" + position;
             }
         };
+        //不循环 反转轮播
         adapter.setLoop(false);
+        //自动轮播
+        adapter.setAutoSwitch(true);
         viewPager.setAdapter(adapter);
 
     }
