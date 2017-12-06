@@ -14,13 +14,11 @@ public class AlphaTransformer implements ViewPager.PageTransformer {
     int width=-1;
     @Override
     public void transformPage(View page, float position) {
-        System.out.println(position);
         if(excursion==-1){
             excursion=-position;
             width=page.getWidth();
         }
         position=position+excursion;
-        System.out.println("excursion"+excursion);
         if (position < -1 || position > 1) {
             page.setAlpha(MINALPHA);
             page.setScaleX(MINALPHA);

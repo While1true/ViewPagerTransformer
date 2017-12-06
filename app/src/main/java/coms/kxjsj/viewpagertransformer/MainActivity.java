@@ -1,8 +1,6 @@
 package coms.kxjsj.viewpagertransformer;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,25 +12,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ViewPager viewPager=findViewById(R.id.viewPager);
-
-
         viewPager.setPageTransformer(false,new AlphaTransformer());
-        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+        LoopFragmentPagerAdapter adapter = new LoopFragmentPagerAdapter(getSupportFragmentManager()) {
+
             @Override
-            public Fragment getItem(int position) {
+            public int getActualCount() {
+                return 12;
+            }
+
+            @Override
+            public Fragment getActualItem(int position) {
                 return new MyFragment();
             }
 
             @Override
-            public int getCount() {
-                return 10;
+            public CharSequence getActualPagerTitle(int position) {
+                return "标题" + position;
             }
-
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return "标题"+position;
-            }
-        });
+        };
+        adapter.setLoop(false);
+        viewPager.setAdapter(adapter);
 
     }
 }
