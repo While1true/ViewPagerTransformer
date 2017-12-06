@@ -1,6 +1,6 @@
 # ViewPagerTransformer
 ViewPager一屏幕多页显示，自定义Transformer
-
+# 支持定时循环切换的Viewpageradapter
 
 LoopFragmentPagerAdapter adapter = new LoopFragmentPagerAdapter(getSupportFragmentManager()) {
 
