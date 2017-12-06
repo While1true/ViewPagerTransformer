@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager=findViewById(R.id.viewPager);
 
 
-        viewPager.setPageTransformer(false,new AlphaTransformer(viewPager));
+        viewPager.setPageTransformer(false,new AlphaTransformer());
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
